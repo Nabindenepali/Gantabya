@@ -6,6 +6,6 @@ export class Pk2AngularCliFreePage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('gantabya-root h1')).getText();
   }
 }
