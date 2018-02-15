@@ -1,0 +1,6 @@
+<h3 class="text-center">Featured Events</h3>
+<div class="featured-event-list row">
+  <div *ngFor="let featuredEvent of featuredEvents" class="col-sm-4 card no-transition" style="width: 20rem;">
+    <gantabya-featured-event [featuredEvent]="featuredEvent"></gantabya-featured-event>
+  </div>
+</div>
