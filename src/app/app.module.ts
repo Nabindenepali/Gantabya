@@ -18,6 +18,7 @@ import {FeaturedEventsComponent} from './featured-events/featured-events.compone
 import {FeaturedEventComponent} from './featured-event/featured-event.component';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { EventComponent } from './event/event.component';
         FeaturedEventsComponent,
         FeaturedEventComponent,
         EventsComponent,
-        EventComponent
+        EventComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,

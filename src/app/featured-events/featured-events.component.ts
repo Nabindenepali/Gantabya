@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Event} from '../models';
+import { Component, OnInit } from '@angular/core';
+import { Event } from '../models';
 
 @Component({
     selector: 'gantabya-featured-events',
@@ -8,7 +8,7 @@ import {Event} from '../models';
 })
 export class FeaturedEventsComponent implements OnInit {
 
-    featuredEvents: Event[] = [];
+    featuredEvents: Array<Event> = [];
 
     constructor() {
     }
@@ -40,7 +40,6 @@ export class FeaturedEventsComponent implements OnInit {
                 'https://assets.adidas.com.au/image/upload/f_auto,q_auto,fl_lossy/enAU/Images/ultraboost-pac-local_tcm226-196616.jpg'
             )
         ]
-
     }
 
 }

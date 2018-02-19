@@ -1,3 +1,13 @@
-<p>
-  event works!
-</p>
+<div class="row">
+  <div class="col-sm-4">
+    <img [alt]="event.name" [src]="event.imgUrl" class="card-img-top">
+  </div>
+  <div class="col-sm-8">
+    <div class="card-block">
+      <p class="card-title">{{event.name}}</p>
+      <p class="card-text">{{event.description}}</p>
+      <p class="card-text">{{event.organizer}}</p>
+      <p class="card-text">{{event.date}}</p>
+    </div>
+  </div>
+</div>

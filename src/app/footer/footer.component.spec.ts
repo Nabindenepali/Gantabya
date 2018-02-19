@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
 
-xdescribe('FooterComponent', () => {
+describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
@@ -13,13 +13,13 @@ xdescribe('FooterComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

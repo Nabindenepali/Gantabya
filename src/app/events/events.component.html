@@ -1,3 +1,6 @@
-<p>
-  events works!
-</p>
+<h4 class="text-center">Upcoming Events</h4>
+<div class="event-list row">
+  <div *ngFor="let event of events" class="col-sm-12 card no-transition" style="width: 20rem;">
+    <gantabya-event [event]="event"></gantabya-event>
+  </div>
+</div>
