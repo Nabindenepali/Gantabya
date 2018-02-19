@@ -30,7 +30,7 @@ export class NgbdModalContent {
 }
 
 @Component({
-    selector: 'app-modal-component',
+    selector: 'gantabya-modal-component',
     templateUrl: './modal.component.html'
 })
 export class NgbdModalComponent {

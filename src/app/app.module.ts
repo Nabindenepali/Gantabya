@@ -16,6 +16,8 @@ import {HomeModule} from './home/home.module';
 import {HomePageComponent} from './home-page/home-page.component';
 import {FeaturedEventsComponent} from './featured-events/featured-events.component';
 import {FeaturedEventComponent} from './featured-event/featured-event.component';
+import { EventsComponent } from './events/events.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,9 @@ import {FeaturedEventComponent} from './featured-event/featured-event.component'
         FooterComponent,
         HomePageComponent,
         FeaturedEventsComponent,
-        FeaturedEventComponent
+        FeaturedEventComponent,
+        EventsComponent,
+        EventComponent
     ],
     imports: [
         BrowserModule,
