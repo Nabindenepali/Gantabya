@@ -19,6 +19,7 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
+import { EventsService } from './services/events.service';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,9 @@ import { EventCrudComponent } from './event-crud/event-crud.component';
         AppRoutingModule,
         HomeModule
     ],
-    providers: [],
+    providers: [
+        EventsService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
