@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventsService } from '../services';
 
 @Component({
   selector: 'gantabya-event-crud',
@@ -10,19 +11,20 @@ export class EventCrudComponent implements OnInit {
 
   eventForm: FormGroup;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _eventsService: EventsService, private _fb: FormBuilder) { }
 
   ngOnInit() {
     this.eventForm = this._fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
       organizer: ['', Validators.required],
-      date: ['', Validators.required]
+      date: ['', Validators.required],
+      imgUrl: ['', Validators.required]
     });
   }
 
   addEvent(newEvent: any): void {
-    console.log(newEvent);
+    this._eventsService.createEvent(newEvent);
   }
 
 }

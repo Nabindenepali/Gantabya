@@ -38,6 +38,14 @@
             </div>
 
             <div class="form-group">
+                <label class="col-sm-4 control-label" for="date">Date</label>
+                <input formControlName="imgUrl" id="imgUrl" type="text" placeholder="Link to the event's image"
+                       class="form-control input-md">
+                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['imgUrl'].touched && eventForm.controls['imgUrl'].invalid">Please enter a link to the image for the event.
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label class="col-sm-4 control-label" for="submit"></label>
                 <div class="col-sm-4 ml-auto mr-auto">
                     <button id="submit" name="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Create
