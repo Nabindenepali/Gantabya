@@ -19,7 +19,9 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
-import { EventsService } from './services/events.service';
+import { EventsService, UserService } from './services';
+import { LoginComponent } from './login/login.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     declarations: [
@@ -34,7 +36,8 @@ import { EventsService } from './services/events.service';
         EventsComponent,
         EventComponent,
         HeaderComponent,
-        EventCrudComponent
+        EventCrudComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -43,10 +46,12 @@ import { EventsService } from './services/events.service';
         ReactiveFormsModule,
         RouterModule,
         AppRoutingModule,
-        HomeModule
+        HomeModule,
+        HttpModule
     ],
     providers: [
-        EventsService
+        EventsService,
+        UserService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../models';
-import { EventsService } from '../services/events.service';
+import { EventsService } from '../services';
 
 @Component({
   selector: 'gantabya-events',

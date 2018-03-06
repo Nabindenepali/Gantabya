@@ -10,6 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {path: 'home-page', component: HomePageComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'user-profile', component: ProfileComponent},
     {path: 'signup', component: SignupComponent},
+    {path: 'login', component: LoginComponent},
     {path: 'landing', component: LandingComponent},
     {path: 'nucleoicons', component: NucleoiconsComponent},
     {path: '', redirectTo: 'home-page', pathMatch: 'full'}

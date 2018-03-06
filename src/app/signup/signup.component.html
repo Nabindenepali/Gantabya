@@ -1,38 +1,50 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
+    <div class="page-header" style="background-image: url('assets/img/login-image.jpg');">
         <div class="filter"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                         <div class="card card-register">
                             <h3 class="title">Welcome</h3>
-                            <div class="social-line text-center">
-                                <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
-                                    <i class="fa fa-facebook-square"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </div>
-                            <form class="register-form">
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email">
+                            <form [formGroup]="signupForm" (ngSubmit)="signUp(signupForm.value)" class="register-form">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input formControlName="email" id="email" name="email" type="text" placeholder="Email"
+                                               class="form-control input-md">
+                                        <div class="alert" *ngIf="(signupForm.controls['email'].touched || formSubmitted) && !signupForm.controls['email'].valid">Please enter a valid email.
+                                        </div>
+                                        <div class="alert" *ngIf="errors.includes('duplicate_email') && signupForm.controls['email'].pristine">The email has been already taken.
+                                        </div>
+                                    </div>
 
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
-                                <button class="btn btn-danger btn-block btn-round">Register</button>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input formControlName="password" id="password" name="password" type="password" placeholder="Password"
+                                               class="form-control input-md">
+                                        <div class="alert" *ngIf="(signupForm.controls['password'].touched || formSubmitted) && !signupForm.controls['password'].valid">Please enter a password.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password_confirmation">Confirm Password</label>
+                                        <input formControlName="password_confirmation" id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm Password"
+                                               class="form-control input-md">
+                                        <div class="alert" *ngIf="(signupForm.controls['password_confirmation'].touched || formSubmitted) && signupForm.controls.password_confirmation.errors?.MatchPassword">Confirmation password should match your password.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        <button [disabled]="loading" class="btn btn-success">Register</button>
+                                        <img class="loader" *ngIf="loading"
+                                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                                        <a [routerLink]="['/login']" class="btn btn-info">Login</a>
+                                    </div>
                             </form>
-                            <div class="forgot">
-                                <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-                            </div>
+                            <!--<div class="forgot">-->
+                                <!--<a href="#" class="btn btn-link btn-danger">Forgot password?</a>-->
+                            <!--</div>-->
                         </div>
                     </div>
-                </div>
-                <div class="footer register-footer text-center">
-                    <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
                 </div>
             </div>
     </div>

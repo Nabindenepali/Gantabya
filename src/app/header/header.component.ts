@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  loggedIn = false;
 
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.getItem('current_user')) {
+      this.loggedIn = true;
+    }
   }
 
 }
