@@ -1,63 +1,67 @@
-<div class="col-sm-8 ml-auto mr-auto">
-    <form [formGroup]="eventForm" (ngSubmit)="addEvent(eventForm.value)" class="form-horizontal">
-        <fieldset>
-            <legend>Add A New Event</legend>
+<gantabya-header></gantabya-header>
+<div class="main-content">
+    <div class="col-sm-8 ml-auto mr-auto">
+        <form [formGroup]="eventForm" (ngSubmit)="addEvent(eventForm.value)" class="form-horizontal">
+            <fieldset>
+                <legend>Add A New Event</legend>
 
-            <hr>
+                <hr>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="name">Name of the Event</label>
-                <input formControlName="name" id="name" type="text" placeholder="Name of the event"
-                       class="form-control input-md">
-                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['name'].touched && eventForm.controls['name'].invalid">Please enter a name.
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="name">Name of the Event</label>
+                    <input formControlName="name" id="name" type="text" placeholder="Name of the event"
+                           class="form-control input-md">
+                    <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['name'].touched && eventForm.controls['name'].invalid">Please enter a name.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="description">Description</label>
-                <input formControlName="description" id="description" type="text" placeholder="Description"
-                       class="form-control input-md">
-                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['description'].touched && eventForm.controls['description'].invalid">Please enter a description for your event.
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="description">Description</label>
+                    <input formControlName="description" id="description" type="text" placeholder="Description"
+                           class="form-control input-md">
+                    <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['description'].touched && eventForm.controls['description'].invalid">Please enter a description for your event.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="organizer">Organizer</label>
-                <input formControlName="organizer" id="organizer" type="text" placeholder="Organizer"
-                       class="form-control input-md">
-                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['organizer'].touched && eventForm.controls['organizer'].invalid">Please enter the name of organizer.
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="organizer">Organizer</label>
+                    <input formControlName="organizer" id="organizer" type="text" placeholder="Organizer"
+                           class="form-control input-md">
+                    <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['organizer'].touched && eventForm.controls['organizer'].invalid">Please enter the name of organizer.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="date">Date</label>
-                <input formControlName="date" id="date" type="text" placeholder="Date"
-                       class="form-control input-md">
-                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['date'].touched && eventForm.controls['date'].invalid">Please enter a date for the event.
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="date">Date</label>
+                    <input formControlName="date" id="date" type="text" placeholder="Date"
+                           class="form-control input-md">
+                    <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['date'].touched && eventForm.controls['date'].invalid">Please enter a date for the event.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="date">Date</label>
-                <input formControlName="imgUrl" id="imgUrl" type="text" placeholder="Link to the event's image"
-                       class="form-control input-md">
-                <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['imgUrl'].touched && eventForm.controls['imgUrl'].invalid">Please enter a link to the image for the event.
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="date">Date</label>
+                    <input formControlName="imgUrl" id="imgUrl" type="text" placeholder="Link to the event's image"
+                           class="form-control input-md">
+                    <div class="col-sm-8 ml-auto alert" *ngIf="eventForm.controls['imgUrl'].touched && eventForm.controls['imgUrl'].invalid">Please enter a link to the image for the event.
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-4 control-label" for="submit"></label>
-                <div class="col-sm-4 ml-auto mr-auto">
-                    <button id="submit" name="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Create
-                    </button>
-                    <!--<img *ngIf="loading"-->
-                         <!--src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>-->
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="submit"></label>
+                    <div class="col-sm-4 ml-auto mr-auto">
+                        <button id="submit" name="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Create
+                        </button>
+                        <!--<img *ngIf="loading"-->
+                             <!--src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>-->
+                    </div>
                 </div>
-            </div>
 
-        </fieldset>
-    </form>
+            </fieldset>
+        </form>
+    </div>
 </div>
+<gantabya-footer></gantabya-footer>
 
 
 
