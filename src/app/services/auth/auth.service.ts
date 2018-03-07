@@ -45,12 +45,19 @@ export class AuthService {
         .catch(this._handleError);
     }
 
-    logout(): void {
-        localStorage.removeItem('current_user');
+    logout(): Observable<any> {
+        return this._http.delete(
+            `http://localhost:3000/sessions/${this.getAuthToken()}`,
+        )
+        .catch(this._handleError);
     }
 
     getUser(): any {
         return localStorage.getItem('current_user');
+    }
+
+    getAuthToken(): any {
+        return JSON.parse(this.getUser()).auth_token;
     }
 
     isLoggedIn(): boolean {
