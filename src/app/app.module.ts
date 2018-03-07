@@ -56,7 +56,8 @@ import { LoggedInGuard, LoggedOutGuard } from './guards';
         EventsService,
         AuthService,
         LoggedInGuard,
-        LoggedOutGuard
+        LoggedOutGuard,
+        { provide: 'API_URL', useValue: 'http://localhost:3000' }
     ],
     bootstrap: [AppComponent]
 })

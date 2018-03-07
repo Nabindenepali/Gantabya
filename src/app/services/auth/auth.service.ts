@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class AuthService {
 
-    constructor(private _http: Http) {
+    constructor(private _http: Http, @Inject('API_URL') private _apiUrl: string) {
     }
 
     register(user: any): Observable<any> {
@@ -18,7 +18,7 @@ export class AuthService {
         });
         const options = new RequestOptions({headers: headers});
         return this._http.post(
-            'http://localhost:3000/users',
+            `${this._apiUrl}/users`,
             {user: user},
             options
         )
@@ -35,7 +35,7 @@ export class AuthService {
         });
         const options = new RequestOptions({headers: headers});
         return this._http.post(
-            'http://localhost:3000/sessions',
+            `${this._apiUrl}/sessions`,
             {session: user},
             options
         )
@@ -47,7 +47,7 @@ export class AuthService {
 
     logout(): Observable<any> {
         return this._http.delete(
-            `http://localhost:3000/sessions/${this.getAuthToken()}`,
+            `${this._apiUrl}/sessions/${this.getAuthToken()}`,
         )
         .catch(this._handleError);
     }
