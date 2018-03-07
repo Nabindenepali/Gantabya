@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../services/user/user.service';
+import { AuthService } from '../services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   error = false;
 
-  constructor(private _fb: FormBuilder, private _userService: UserService, private _router: Router) { }
+  constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) { }
 
   ngOnInit() {
     this.loginForm = this._fb.group({
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         email: user.email,
         password: user.password
       }
-      this._userService.login(userPayload)
+      this._authService.login(userPayload)
           .subscribe(
               response => {
                 localStorage.setItem('current_user', JSON.stringify(response));

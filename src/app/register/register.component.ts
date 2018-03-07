@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../services';
+import { AuthService } from '../services';
 import { PasswordValidation } from '../validators/confirmpassword.validator';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     formSubmitted = false;
     errors = [];
 
-    constructor(private _fb: FormBuilder, private _userService: UserService, private _router: Router) { }
+    constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) { }
 
     ngOnInit() {
         this.registrationForm = this._fb.group({
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
                 password: newUser.password,
                 password_confirmation: newUser.password_confirmation
             }
-            this._userService.register(userPayload)
+            this._authService.register(userPayload)
                 .subscribe(
                     response => {
                         localStorage.setItem('current_user', JSON.stringify(response));

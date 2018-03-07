@@ -12,18 +12,19 @@ import { EventCrudComponent } from './event-crud/event-crud.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { LoggedInGuard, LoggedOutGuard } from './guards';
 
 const routes: Routes = [
-    {path: '', component: HomePageComponent},
-    {path: 'new-event', component: EventCrudComponent},
-    {path: 'home', component: HomeComponent},
-    {path: 'user-profile', component: ProfileComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'landing', component: LandingComponent},
-    {path: 'nucleoicons', component: NucleoiconsComponent},
-    {path: 'events/:id', component: EventDetailsComponent }
-    // {path: '', redirectTo: 'home-page', pathMatch: 'full'}
+    {path: '', component: HomePageComponent, canActivate: [LoggedInGuard]},
+    {path: 'new-event', component: EventCrudComponent, canActivate: [LoggedInGuard]},
+    {path: 'home', component: HomeComponent, canActivate: [LoggedInGuard]},
+    {path: 'auth-profile', component: ProfileComponent, canActivate: [LoggedInGuard]},
+    {path: 'register', component: RegisterComponent, canActivate: [LoggedOutGuard]},
+    {path: 'login', component: LoginComponent, canActivate: [LoggedOutGuard]},
+    {path: 'landing', component: LandingComponent, canActivate: [LoggedInGuard]},
+    {path: 'nucleoicons', component: NucleoiconsComponent, canActivate: [LoggedInGuard]},
+    {path: 'events/:id', component: EventDetailsComponent, canActivate: [LoggedInGuard]},
+    {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

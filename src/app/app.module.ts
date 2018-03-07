@@ -18,11 +18,12 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
-import { EventsService, UserService } from './services';
+import { EventsService, AuthService } from './services';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
 import { RegisterComponent } from './register/register.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { LoggedInGuard, LoggedOutGuard } from './guards';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,9 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     ],
     providers: [
         EventsService,
-        UserService
+        AuthService,
+        LoggedInGuard,
+        LoggedOutGuard
     ],
     bootstrap: [AppComponent]
 })

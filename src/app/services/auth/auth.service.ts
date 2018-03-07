@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class UserService {
+export class AuthService {
 
     constructor(private _http: Http) {
     }
@@ -22,10 +22,10 @@ export class UserService {
             {user: user},
             options
         )
-            .map(response => {
-                return response.json();
-            })
-            .catch(this._handleError);
+        .map(response => {
+            return response.json();
+        })
+        .catch(this._handleError);
     }
 
     login(user: any): Observable<any> {
@@ -39,14 +39,25 @@ export class UserService {
             {session: user},
             options
         )
-            .map(response => {
-                return response.json();
-            })
-            .catch(this._handleError);
+        .map(response => {
+            return response.json();
+        })
+        .catch(this._handleError);
+    }
+
+    logout(): void {
+        localStorage.removeItem('current_user');
+    }
+
+    getUser(): any {
+        return localStorage.getItem('current_user');
+    }
+
+    isLoggedIn(): boolean {
+        return this.getUser() !== null;
     }
 
     private _handleError(error: Response): Observable<object> {
         return Observable.throw(error.json());
     }
-
 }
