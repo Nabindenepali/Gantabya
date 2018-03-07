@@ -6,14 +6,14 @@
                     <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                         <div class="card card-register">
                             <h3 class="title">Welcome</h3>
-                            <form [formGroup]="signupForm" (ngSubmit)="signUp(signupForm.value)" class="register-form">
+                            <form [formGroup]="registrationForm" (ngSubmit)="register(registrationForm.value)" class="register-form">
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input formControlName="email" id="email" name="email" type="text" placeholder="Email"
                                                class="form-control input-md">
-                                        <div class="alert" *ngIf="(signupForm.controls['email'].touched || formSubmitted) && !signupForm.controls['email'].valid">Please enter a valid email.
+                                        <div class="alert" *ngIf="(registrationForm.controls['email'].touched || formSubmitted) && !registrationForm.controls['email'].valid">Please enter a valid email.
                                         </div>
-                                        <div class="alert" *ngIf="errors.includes('duplicate_email') && signupForm.controls['email'].pristine">The email has been already taken.
+                                        <div class="alert" *ngIf="errors.includes('duplicate_email') && registrationForm.controls['email'].pristine">The email has been already taken.
                                         </div>
                                     </div>
 
@@ -21,7 +21,7 @@
                                         <label for="password">Password</label>
                                         <input formControlName="password" id="password" name="password" type="password" placeholder="Password"
                                                class="form-control input-md">
-                                        <div class="alert" *ngIf="(signupForm.controls['password'].touched || formSubmitted) && !signupForm.controls['password'].valid">Please enter a password.
+                                        <div class="alert" *ngIf="(registrationForm.controls['password'].touched || formSubmitted) && !registrationForm.controls['password'].valid">Please enter a password.
                                         </div>
                                     </div>
 
@@ -29,7 +29,7 @@
                                         <label for="password_confirmation">Confirm Password</label>
                                         <input formControlName="password_confirmation" id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm Password"
                                                class="form-control input-md">
-                                        <div class="alert" *ngIf="(signupForm.controls['password_confirmation'].touched || formSubmitted) && signupForm.controls.password_confirmation.errors?.MatchPassword">Confirmation password should match your password.
+                                        <div class="alert" *ngIf="(registrationForm.controls['password_confirmation'].touched || formSubmitted) && registrationForm.controls.password_confirmation.errors?.MatchPassword">Confirmation password should match your password.
                                         </div>
                                     </div>
 

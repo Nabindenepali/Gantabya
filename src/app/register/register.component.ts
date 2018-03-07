@@ -5,12 +5,12 @@ import { PasswordValidation } from '../validators/confirmpassword.validator';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'gantabya-signup',
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss']
+    selector: 'gantabya-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss']
 })
-export class SignupComponent implements OnInit {
-    signupForm: FormGroup;
+export class RegisterComponent implements OnInit {
+    registrationForm: FormGroup;
     loading = false;
     formSubmitted = false;
     errors = [];
@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
     constructor(private _fb: FormBuilder, private _userService: UserService, private _router: Router) { }
 
     ngOnInit() {
-        this.signupForm = this._fb.group({
+        this.registrationForm = this._fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             password_confirmation: ['', [Validators.required]]
@@ -27,16 +27,16 @@ export class SignupComponent implements OnInit {
         });
     }
 
-    signUp(newUser) {
+    register(newUser) {
         this.formSubmitted = true;
         this.loading = true;
-        if (this.signupForm.valid) {
+        if (this.registrationForm.valid) {
             const userPayload = {
                 email: newUser.email,
                 password: newUser.password,
                 password_confirmation: newUser.password_confirmation
             }
-            this._userService.signup(userPayload)
+            this._userService.register(userPayload)
                 .subscribe(
                     response => {
                         localStorage.setItem('current_user', JSON.stringify(response));
@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
                         const signupErrors = error.errors;
                         if (signupErrors.email.includes('has already been taken')) {
                             this.errors.push('duplicate_email');
-                            this.signupForm.controls['email'].markAsPristine();
+                            this.registrationForm.controls['email'].markAsPristine();
                         }
                         this.loading = false;
                     }

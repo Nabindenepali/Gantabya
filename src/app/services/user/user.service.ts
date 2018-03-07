@@ -8,27 +8,45 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class UserService {
 
-  constructor(private _http: Http) { }
+    constructor(private _http: Http) {
+    }
 
-  signup(user: any): Observable<any> {
-    const headers: Headers = new Headers({
-      'Accept': 'application/vnd.gantabya.v1,application/json',
-      'Content-Type': 'application/json'
-    });
-    const options = new RequestOptions({headers: headers});
-    return this._http.post(
-        'http://localhost:3000/users',
-        {user: user},
-        options
-    )
-    .map(response => {
-      return response.json();
-    })
-    .catch(this._handleError);
-  }
+    register(user: any): Observable<any> {
+        const headers: Headers = new Headers({
+            'Accept': 'application/vnd.gantabya.v1,application/json',
+            'Content-Type': 'application/json'
+        });
+        const options = new RequestOptions({headers: headers});
+        return this._http.post(
+            'http://localhost:3000/users',
+            {user: user},
+            options
+        )
+            .map(response => {
+                return response.json();
+            })
+            .catch(this._handleError);
+    }
 
-  private _handleError(error: Response): Observable<object> {
-    return Observable.throw(error.json());
-  }
+    login(user: any): Observable<any> {
+        const headers: Headers = new Headers({
+            'Accept': 'application/vnd.gantabya.v1,application/json',
+            'Content-Type': 'application/json'
+        });
+        const options = new RequestOptions({headers: headers});
+        return this._http.post(
+            'http://localhost:3000/sessions',
+            {session: user},
+            options
+        )
+            .map(response => {
+                return response.json();
+            })
+            .catch(this._handleError);
+    }
+
+    private _handleError(error: Response): Observable<object> {
+        return Observable.throw(error.json());
+    }
 
 }

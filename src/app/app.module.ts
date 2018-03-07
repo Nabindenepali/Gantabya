@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -22,11 +21,11 @@ import { EventCrudComponent } from './event-crud/event-crud.component';
 import { EventsService, UserService } from './services';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        SignupComponent,
         LandingComponent,
         ProfileComponent,
         FooterComponent,
@@ -37,6 +36,7 @@ import { HttpModule } from '@angular/http';
         EventComponent,
         HeaderComponent,
         EventCrudComponent,
+        RegisterComponent,
         LoginComponent
     ],
     imports: [
