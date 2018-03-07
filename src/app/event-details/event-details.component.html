@@ -1,0 +1,21 @@
+<gantabya-header></gantabya-header>
+<div class="main-content">
+    <h4 class="text-center">{{ event.name }}</h4>
+    <br/>
+    <div class="col-sm-12">
+        <img [alt]="event.name" [src]="event.imgUrl" class="card-img-top">
+    </div>
+    <div class="col-sm-12">
+        <br/>
+        <div class="card-block">
+            <p class="card-text"><strong>Description:</strong> {{event.description}}</p>
+            <p class="card-text"><strong>Organizer:</strong> {{event.organizer}}</p>
+            <p class="card-text"><strong>Date:</strong> {{event.date}}</p>
+        </div>
+    </div>
+    <br/>
+    <a [routerLink]="['']"><div class="col-sm-4 text-center btn-lg btn-success ml-auto mr-auto">BACK</div></a>
+</div>
+<gantabya-footer></gantabya-footer>
+
+

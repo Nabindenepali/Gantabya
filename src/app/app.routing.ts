@@ -11,9 +11,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 const routes: Routes = [
-    {path: 'home-page', component: HomePageComponent},
+    {path: '', component: HomePageComponent},
     {path: 'new-event', component: EventCrudComponent},
     {path: 'home', component: HomeComponent},
     {path: 'user-profile', component: ProfileComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'landing', component: LandingComponent},
     {path: 'nucleoicons', component: NucleoiconsComponent},
-    {path: '', redirectTo: 'home-page', pathMatch: 'full'}
+    {path: 'events/:id', component: EventDetailsComponent }
+    // {path: '', redirectTo: 'home-page', pathMatch: 'full'}
 ];
 
 @NgModule({

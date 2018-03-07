@@ -11,7 +11,7 @@ export class EventsService {
 
         this.events = [
             new Event(
-                1,
+                '1',
                 'Literature Festival',
                 'Literature Festival in Bhrikutimandap, Exhibition Road',
                 'Nepal Readers Society',
@@ -19,7 +19,7 @@ export class EventsService {
                 'http://s0.geograph.org.uk/geophotos/05/08/05/5080594_054174db.jpg'
             ),
             new Event(
-                2,
+                '2',
                 'Akira Kurosawa Film Show',
                 'Kumari Cinema Hall',
                 'Nepal Japan Film Society',
@@ -27,7 +27,7 @@ export class EventsService {
                 'https://samsfen.files.wordpress.com/2014/12/ranbdcap1_original.jpg'
             ),
             new Event(
-                3,
+                '3',
                 'Hiking to Chisapani',
                 'Hiking to Chispani, Kathmandu',
                 'Hike for Nepal',
@@ -35,7 +35,7 @@ export class EventsService {
                 'http://www.guideinhimalaya.com/userfiles/slideshow_151.jpg'
             ),
             new Event(
-                4,
+                '4',
                 'Sekuwa Festival',
                 'Sekuwa Festival at Tudikhel',
                 'Bajeko Sekuwa',
@@ -43,7 +43,7 @@ export class EventsService {
                 'https://images-na.ssl-images-amazon.com/images/I/81QwTNtASAL._SL1500_.jpg'
             ),
             new Event(
-                5,
+                '5',
                 'Nepal vs West Indies Cricket Match',
                 'Tribuvan University Ground',
                 'Cricket Association of Nepal',
@@ -54,7 +54,7 @@ export class EventsService {
 
         this.featuredEvents = [
             new Event(
-                1,
+                '1',
                 'Horse Riding',
                 'Horse Riding in Patan, Nepal',
                 'Nepal Horse Riders Association',
@@ -62,7 +62,7 @@ export class EventsService {
                 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/03/06/11/horse-riding-intelligence.jpg'
             ),
             new Event(
-                2,
+                '2',
                 'Momo Festival',
                 'Momo Festival in Bhrikutimandap',
                 'The Bakery Cafe',
@@ -70,7 +70,7 @@ export class EventsService {
                 'https://i0.wp.com/www.theindianfoodies.com/wp-content/uploads/2016/02/momo3-1.jpg?fit=614%2C409'
             ),
             new Event(
-                3,
+                '3',
                 'Shoe Sale',
                 'Shoe Sale at Adidas, Durbarmarg',
                 'Adidas Nepal',
@@ -85,12 +85,16 @@ export class EventsService {
         return this.events;
     }
 
+    getEvent(id: string): Event {
+        return this.events.find(event => event.id === id);
+    }
+
     getFetauredEvents(): Array<Event> {
         return this.featuredEvents;
     }
 
     createEvent(event: any): void {
-        const newEvent = new Event(this.events.length + 1, event.name, event.description, event.organizer, event.date, event.imgUrl);
+        const newEvent = new Event((this.events.length + 1).toString(), event.name, event.description, event.organizer, event.date, event.imgUrl);
         this.events.push(newEvent);
     }
 

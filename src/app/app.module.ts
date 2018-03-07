@@ -22,6 +22,7 @@ import { EventsService, UserService } from './services';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
 import { RegisterComponent } from './register/register.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { RegisterComponent } from './register/register.component';
         HeaderComponent,
         EventCrudComponent,
         RegisterComponent,
-        LoginComponent
+        LoginComponent,
+        EventDetailsComponent
     ],
     imports: [
         BrowserModule,
