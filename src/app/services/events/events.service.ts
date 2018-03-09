@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Event } from '../../models/event';
+import { ApiService } from '../api/api.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EventsService {
@@ -7,7 +9,7 @@ export class EventsService {
     private events: Array<Event>;
     private featuredEvents: Array<Event>;
 
-    constructor() {
+    constructor(private _apiService: ApiService) {
 
         this.events = [
             new Event(
@@ -93,9 +95,8 @@ export class EventsService {
         return this.featuredEvents;
     }
 
-    createEvent(event: any): void {
-        const newEvent = new Event((this.events.length + 1).toString(), event.name, event.description, event.organizer, event.date, event.imgUrl);
-        this.events.push(newEvent);
+    createEvent(event: any): Observable<any> {
+        return this._apiService.post('/events', event);
     }
 
 }

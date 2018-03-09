@@ -18,7 +18,7 @@ import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventCrudComponent } from './event-crud/event-crud.component';
-import { EventsService, AuthService } from './services';
+import { ApiService, EventsService, AuthService } from './services';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
 import { RegisterComponent } from './register/register.component';
@@ -53,6 +53,7 @@ import { LoggedInGuard, LoggedOutGuard } from './guards';
         HttpModule
     ],
     providers: [
+        ApiService,
         EventsService,
         AuthService,
         LoggedInGuard,

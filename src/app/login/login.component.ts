@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   error = false;
+  formSubmitted = false;
 
   constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) { }
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(user) {
+    this.formSubmitted = true;
     this.loading = true;
     if (this.loginForm.valid) {
       const userPayload = {
