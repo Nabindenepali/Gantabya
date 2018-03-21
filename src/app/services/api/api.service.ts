@@ -51,6 +51,23 @@ export class ApiService implements OnInit {
         .catch(this._handleError);
     }
 
+   uploadFile(url: string, file: any): Observable<any> {
+        const headers: Headers = new Headers({
+            'Accept': 'application/vnd.gantabya.v1,application/json',
+            'Authorization': this._authService.getAuthToken()
+        });
+        const options = new RequestOptions({headers: headers});
+        return this._http.post(
+            `${this._apiUrl}${url}`,
+            file,
+            options
+        )
+            .map(response => {
+                return response.json();
+            })
+            .catch(this._handleError);
+    }
+
     private _handleError(error: Response): Observable<object> {
         return Observable.throw(error.json());
     }

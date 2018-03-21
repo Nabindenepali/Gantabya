@@ -99,4 +99,8 @@ export class EventsService {
         return this._apiService.post('/events', event);
     }
 
+    addImage(eventId: string, image: any): Observable<any> {
+        return this._apiService.uploadFile(`/events/${eventId}/image`, image);
+    }
+
 }
